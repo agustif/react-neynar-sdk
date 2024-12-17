@@ -93,8 +93,8 @@ export const NeynarProfileCard: React.FC<NeynarProfileCardProps> = ({
       displayName={userData.display_name}
       avatarImgUrl={userData.pfp_url}
       bio={showItems.bio ? userData.profile.bio.text : undefined}
-      followers={showItems.stats === "followers" ? userData.follower_count : undefined}
-      following={showItems.stats === "following" ? userData.following_count : undefined}
+      followers={userData.follower_count}
+      following={userData.following_count}
       hasPowerBadge={showItems.powerBadge ? userData.power_badge : undefined}
       isOwnProfile={isOwnProfile}
       isFollowing={userData.viewer_context?.followed_by}

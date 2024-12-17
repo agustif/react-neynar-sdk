@@ -164,15 +164,6 @@ export const ProfileCard = memo(
             <Box spacingVertical="15px">
               <div style={containerStyles}>{linkifiedBio}</div>
             </Box>
-
-            <HBox>
-              <ProfileMetaCell>
-                <strong style={customNumberStyle}>{formattedFollowingCount}</strong> Following
-              </ProfileMetaCell>
-              <ProfileMetaCell>
-                <strong style={customNumberStyle}>{formattedFollowersCount}</strong> Followers
-              </ProfileMetaCell>
-            </HBox>
           </Main>
         </HBox>
       </StyledProfileCard>
