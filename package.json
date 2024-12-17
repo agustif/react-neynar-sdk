@@ -57,5 +57,10 @@
   },
   "dependencies": {
     "storybook-source-link": "^4.0.1"
-  }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
 }
