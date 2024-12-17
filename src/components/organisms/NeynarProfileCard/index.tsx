@@ -33,14 +33,21 @@ async function fetchUserByFid({
 export type NeynarProfileCardProps = {
   fid: number;
   viewerFid?: number;
+  showItems?: {
+    bio?: boolean;
+    stats?: boolean | "followers" | "following";
+    powerBadge?: boolean;
+    avatar?: boolean;
+  }
   containerStyles?: React.CSSProperties;
 };
 
 export const NeynarProfileCard: React.FC<NeynarProfileCardProps> = ({
   fid,
   viewerFid,
+  showItems = { bio: true, stats: true, powerBadge: true, avatar: true },
   containerStyles
-}) => {
+}: NeynarProfileCardProps) => {
   const { client_id } = useNeynarContext();
 
   const [userData, setUserData] = useState<any | null>(null);
@@ -85,10 +92,10 @@ export const NeynarProfileCard: React.FC<NeynarProfileCardProps> = ({
       username={userData.username}
       displayName={userData.display_name}
       avatarImgUrl={userData.pfp_url}
-      bio={userData.profile.bio.text}
-      followers={userData.follower_count}
-      following={userData.following_count}
-      hasPowerBadge={userData.power_badge}
+      bio={showItems.bio ? userData.profile.bio.text : undefined}
+      followers={showItems.stats === "followers" ? userData.follower_count : undefined}
+      following={showItems.stats === "following" ? userData.following_count : undefined}
+      hasPowerBadge={showItems.powerBadge ? userData.power_badge : undefined}
       isOwnProfile={isOwnProfile}
       isFollowing={userData.viewer_context?.followed_by}
       onCast={handleCast}
