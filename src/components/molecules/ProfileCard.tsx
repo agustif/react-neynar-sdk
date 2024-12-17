@@ -128,7 +128,7 @@ export const ProfileCard = memo(
             <ButtonPrimary onClick={onCast}>Cast</ButtonPrimary>
           </HBox>
         )}
-        <HBox>
+        <HBox alignItems="flex-start">
           <Box spacingRight="10px">
             <Avatar
               src={avatarImgUrl ?? SKELETON_PFP_URL}

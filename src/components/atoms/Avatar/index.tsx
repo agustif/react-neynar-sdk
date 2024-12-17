@@ -6,12 +6,20 @@ interface IAvatarProps extends HTMLAttributes<HTMLImageElement> {
   height?: string;
 }
 
-const Avatar = styled.img<IAvatarProps>(() => ({
-  width: (props) => props.width || "45px",
-  height: (props) => props.width || "45px",
+const AvatarImage = styled.img({
+  width: "48px",
+  height: "48px",
   borderRadius: "50%",
-  aspectRatio: 1 / 1,
   objectFit: "cover",
-}));
+  display: "block",
+});
 
-export default Avatar;
+const AvatarContainer = styled.div({
+  width: "48px",
+  height: "48px",
+  borderRadius: "50%",
+  overflow: "hidden",
+  flexShrink: 0,
+});
+
+export default AvatarImage;
